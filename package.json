@@ -1,0 +1,26 @@
+{
+  "name": "school-management",
+  "version": "1.0.0",
+  "description": "A basic School Management system, that uses APIs to post and get data about schools in a region.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhishek10351/school-management.git"
+  },
+  "author": "Abhishek Kashyap",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Abhishek10351/school-management/issues"
+  },
+  "homepage": "https://github.com/Abhishek10351/school-management#readme",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mysql2": "^3.11.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1"
+  }
+}
