@@ -5,6 +5,9 @@ const listSchools = async (req: Request, res: Response) => {
     const { latitude, longitude } = req.body;
     const distance = 10;
     // it will only show schools within 10 km range
+    if (!latitude || !longitude) {
+        return res.status(400).json({ message: "Invalid request" });
+    }
 
     try {
         const [results, fields] = await (
