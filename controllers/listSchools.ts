@@ -20,6 +20,10 @@ const listSchools = async (req: Request, res: Response) => {
             const { latitude: lat, longitude: long } = school;
             return haversine(lat, long, latitude, longitude) <= distance;
         });
+        // if no schools are found within the range
+        if (schools.length === 0) {
+            return res.status(404).json({ message: `No schools found within ${distance} km.` });
+        }
         return res.status(200).json({"schools": schools});
     } catch (error) {
         console.log(error);
