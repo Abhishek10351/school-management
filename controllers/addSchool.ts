@@ -3,7 +3,7 @@ import { connection } from "../db";
 
 const addSchool = async (req: Request, res: Response) => {
     try {
-       let { name, address, latitude, longitude } = req.body;
+        let { name, address, latitude, longitude } = req.body;
         // create a serializable transaction
         if (!name || !address || !latitude || !longitude) {
             return res.status(400).json({ message: "Invalid request" });
@@ -17,12 +17,13 @@ const addSchool = async (req: Request, res: Response) => {
 
         const schoolQuery =
             "INSERT INTO school (name, address, latitude, longitude) VALUES (?, ?, ?, ?)";
+        const data = {name: name, address: address, latitude: latitude, longitude: longitude};
 
         const [result, fields] = await (
             await connection
         ).execute(schoolQuery, [name, address, latitude, longitude]);
 
-        return res.status(200).json({ success: true, data: result });
+        return res.status(200).json({ success: true, data: data });
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: "Internal Server Error" });

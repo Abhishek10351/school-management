@@ -20,7 +20,7 @@ const listSchools = async (req: Request, res: Response) => {
             const { latitude: lat, longitude: long } = school;
             return haversine(lat, long, latitude, longitude) <= distance;
         });
-        return res.status(200).json(schools);
+        return res.status(200).json({"schools": schools});
     } catch (error) {
         console.log(error);
     }
