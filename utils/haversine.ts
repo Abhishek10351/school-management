@@ -6,7 +6,7 @@ const deg2rad = (deg: number) => {
 // reference was taken from https://en.wikipedia.org/wiki/Haversine_formula
 const haversine = (lat1: number, lon1: number, lat2: number, lon2: number) => {
     const R = 6371; // Radius of the earth in km
-    const dLat = deg2rad(lat2 - lat1); // deg2rad below
+    const dLat = deg2rad(lat2 - lat1);
     const dLon = deg2rad(lon2 - lon1);
     const a =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
@@ -20,3 +20,4 @@ const haversine = (lat1: number, lon1: number, lat2: number, lon2: number) => {
 };
 
 export default haversine;
+
